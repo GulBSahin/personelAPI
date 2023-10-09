@@ -4,7 +4,6 @@
 ------------------------------------------------------- */
 const { mongoose } = require('../configs/dbConnection')
 /* ------------------------------------------------------- */
-
 const passwordEncrypt = require('../helpers/passwordEncrypt')
 
 const PersonnelSchema = new mongoose.Schema({
@@ -52,10 +51,7 @@ const PersonnelSchema = new mongoose.Schema({
         trim: true,
         required: true,
         unique: true,
-        validate: (email) => {
-            const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-            return emailRegex.test(email)
-        }
+        validate: (email) => (email.includes('@') && email.includes('.'))
     },
 
     title: {

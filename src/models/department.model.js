@@ -5,18 +5,16 @@
 const { mongoose } = require('../configs/dbConnection')
 /* ------------------------------------------------------- */
 
-const departmentSchema = new mongoose.Schema({
+const DepartmentSchema = new mongoose.Schema({
+
     name: {
         type: String,
-        required: true,
         trim: true,
-        unique: true,
-        minlength: 3,
-        maxlength: 50,
-    },
-}, { collation: "departments", timestamps: true })
+        required: true,
+        unique: true
+    }
+
+}, { collection: "departments", timestamps: true })
 
 /* ------------------------------------------------------- */
-const Department = mongoose.model('Department', departmentSchema)
-
-module.exports = Department
+module.exports = mongoose.model('Department', DepartmentSchema)
