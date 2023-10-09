@@ -43,7 +43,10 @@ app.all('/', (req, res) => {
     })
 })
 // Routes:
+// department:
 app.use('/departments', require('./src/routes/department.router'))
+// personnel:
+app.use('/personnel', require('./src/routes/personnel.router'))
 // errorHandler:
 app.use(require('./src/middlewares/errorHandler'))
 
